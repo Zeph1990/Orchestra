@@ -11,7 +11,9 @@ import com.orchestra.portale.persistence.mongo.documents.ImageGalleryComponent;
 import com.orchestra.portale.persistence.mongo.documents.PoiMongo;
 import com.orchestra.portale.persistence.mongo.documents.TitleComponent;
 import com.orchestra.portale.persistence.sql.entities.Category;
+import com.orchestra.portale.persistence.sql.entities.CompCategoryComponent;
 import com.orchestra.portale.persistence.sql.entities.CompPoiCategory;
+import com.orchestra.portale.persistence.sql.entities.Component;
 import com.orchestra.portale.persistence.sql.entities.Poi;
 import com.orchestra.portale.persistence.sql.repositories.CategoryRepository;
 import com.orchestra.portale.persistence.sql.repositories.CompCategoryComponentRepository;
@@ -19,6 +21,7 @@ import com.orchestra.portale.persistence.sql.repositories.CompPoiCategoryReposit
 import com.orchestra.portale.persistence.sql.repositories.ComponentRepository;
 import com.orchestra.portale.persistence.sql.repositories.PoiRepository;
 import java.util.LinkedList;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.stereotype.Controller;
@@ -26,7 +29,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
- * Controller for testing purposes.
+ * Controller per effettuare test. Le chiamate vanno effettuate in sequenza
+ * test1, test2, test3
  *
  * @author mekko
  */
@@ -51,12 +55,124 @@ public class TestController {
     @Autowired
     MongoOperations mongoOps;
 
+    @RequestMapping("/test1")
+    public ModelAndView insertCategories() {
+        ModelAndView model = new ModelAndView("testview");
+        String msg = "ok";
+
+        try {
+
+            Category food = new Category();
+            Category nightlife = new Category();
+            Category hotels = new Category();
+
+            food.setParent(null);
+            nightlife.setParent(null);
+            hotels.setParent(null);
+
+            food.setSlug("food");
+            nightlife.setSlug("nightlife");
+            hotels.setSlug("hotels");
+
+            categoryRepository.save(food);
+            categoryRepository.save(nightlife);
+            categoryRepository.save(hotels);
+
+
+            /* CHILD CATEGORIES */
+             Category restaurant = new Category();
+             Category disco = new Category();
+             Category hostels = new Category();
+            
+             restaurant.setSlug("restaurant");
+             disco.setSlug("disco");
+             hostels.setSlug("hostels");
+            
+             //Retrieve root categories
+             Category foodout = categoryRepository.findBySlug("food");
+             Category nightlifeout = categoryRepository.findBySlug("nightlife");
+             Category hotelsout = categoryRepository.findBySlug("hotels");
+            
+             //Set parent categoris
+             restaurant.setParent(foodout);
+             disco.setParent(nightlifeout);
+             hostels.setParent(hotelsout);
+            
+             //Save child categories
+             categoryRepository.save(restaurant);
+             categoryRepository.save(disco);
+             categoryRepository.save(hostels);
+             
+        } catch (RuntimeException e) {
+            msg = "error";
+            e.printStackTrace();
+        }
+
+        model.addObject("msg", msg);
+
+        return model;
+    }
+
+    @RequestMapping("/test2")
+    public ModelAndView insertComponents() {
+        ModelAndView model = new ModelAndView("testview");
+        String msg = "ok";
+
+        try {
+              Component title = new Component();
+             title.setSlug("title");
+            
+             Component imageGallery = new Component();
+             imageGallery.setSlug("imagegallery");
+            
+             Component cover = new Component();
+             cover.setSlug("cover");
+            
+             componentRepository.save(title);
+             componentRepository.save(imageGallery);
+             componentRepository.save(cover);
+            
+             List<Category> categories = categoryRepository.findAll();
+            
+             for (Category cat : categories) {
+             CompCategoryComponent comp1 = new CompCategoryComponent();
+             CompCategoryComponent comp2 = new CompCategoryComponent();
+             CompCategoryComponent comp3 = new CompCategoryComponent();
+                
+             comp1.setIdcategory(cat);
+             comp1.setIdcomponent(title);
+             comp1.setRequired(true);
+                
+             comp2.setIdcategory(cat);
+             comp2.setIdcomponent(imageGallery);
+             comp2.setRequired(true);
+                
+             comp3.setIdcategory(cat);
+             comp3.setIdcomponent(cover);
+             comp3.setRequired(true);
+                
+             compCategoryComponentRepository.save(comp1);
+             compCategoryComponentRepository.save(comp2);
+             compCategoryComponentRepository.save(comp3);
+                 
+             }
+             
+        } catch (RuntimeException e) {
+            msg = "error";
+            e.printStackTrace();
+        }
+
+        model.addObject("msg", msg);
+        return model;
+    }
+    
+    
     /**
      * Create ten stubs Poi into the database.
      *
      * @return
      */
-    @RequestMapping("/test1")
+    @RequestMapping("/test3")
     public ModelAndView insertStubPois() {
         ModelAndView model = new ModelAndView("testview");
         String msg = "ok";
@@ -138,112 +254,4 @@ public class TestController {
         model.addObject("msg", msg);
         return model;
     }
-
-    @RequestMapping("/test2")
-    public ModelAndView insertCategories() {
-        ModelAndView model = new ModelAndView("testview");
-        String msg = "ok";
-
-        try {
-            /**
-             * ROOT CATEGORIES Category food = new Category(); Category nighlife
-             * = new Category(); Category hotels = new Category();
-             *
-             * food.setParent(null); nighlife.setParent(null);
-             * hotels.setParent(null);
-             *
-             * food.setSlug("food"); nighlife.setSlug("nightlife");
-             * hotels.setSlug("hotels");
-             *
-             * categoryRepository.save(food); categoryRepository.save(nighlife);
-             * categoryRepository.save(hotels);
-             */
-
-            /* CHILD CATEGORIES 
-             Category restaurant = new Category();
-             Category disco = new Category();
-             Category hostels = new Category();
-            
-             restaurant.setSlug("restaurant");
-             disco.setSlug("disco");
-             hostels.setSlug("hostels");
-            
-             //Retrieve root categories
-             Category food = categoryRepository.findBySlug("food");
-             Category nightlife = categoryRepository.findBySlug("nightlife");
-             Category hotels = categoryRepository.findBySlug("hotels");
-            
-             //Set parent categoris
-             restaurant.setParent(food);
-             disco.setParent(nightlife);
-             hostels.setParent(hotels);
-            
-             //Save child categories
-             categoryRepository.save(restaurant);
-             categoryRepository.save(disco);
-             categoryRepository.save(hostels);
-             */
-        } catch (RuntimeException e) {
-            msg = "error";
-            e.printStackTrace();
-        }
-
-        model.addObject("msg", msg);
-
-        return model;
-    }
-
-    @RequestMapping("/test3")
-    public ModelAndView insertComponents() {
-        ModelAndView model = new ModelAndView("testview");
-        String msg = "ok";
-
-        try {
-            /*   Component title = new Component();
-             title.setSlug("title");
-            
-             Component imageGallery = new Component();
-             imageGallery.setSlug("imagegallery");
-            
-             Component cover = new Component();
-             cover.setSlug("cover");
-            
-             componentRepository.save(title);
-             componentRepository.save(imageGallery);
-             componentRepository.save(cover);
-            
-             List<Category> categories = categoryRepository.findAll();
-            
-             for (Category cat : categories) {
-             CompCategoryComponent comp1 = new CompCategoryComponent();
-             CompCategoryComponent comp2 = new CompCategoryComponent();
-             CompCategoryComponent comp3 = new CompCategoryComponent();
-                
-             comp1.setIdcategory(cat);
-             comp1.setIdcomponent(title);
-             comp1.setRequired(true);
-                
-             comp2.setIdcategory(cat);
-             comp2.setIdcomponent(imageGallery);
-             comp2.setRequired(true);
-                
-             comp3.setIdcategory(cat);
-             comp3.setIdcomponent(cover);
-             comp3.setRequired(true);
-                
-             compCategoryComponentRepository.save(comp1);
-             compCategoryComponentRepository.save(comp2);
-             compCategoryComponentRepository.save(comp3);
-                 
-             }
-             */
-        } catch (RuntimeException e) {
-            msg = "error";
-            e.printStackTrace();
-        }
-
-        model.addObject("msg", msg);
-        return model;
-    }
-
 }
