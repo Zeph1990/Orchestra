@@ -24,7 +24,7 @@ public class WelcomeController {
     @Autowired
     MongoOperations mongoOps;
     
-    @RequestMapping("/test1")
+    //@RequestMapping("/test1")
     public ModelAndView createMongoPoiTest() {
         ModelAndView model = new ModelAndView("welcome");
         PoiMongo poi = new PoiMongo();
@@ -33,7 +33,7 @@ public class WelcomeController {
         return model;
     }
     
-    @RequestMapping("/gettest1")
+    //@RequestMapping("/gettest1")
     public ModelAndView getTest1() {
         ModelAndView model = new ModelAndView("test1");
         PoiMongo poi = mongoOps.findById(new String("54639f0a2736609ee2ea50a8"), PoiMongo.class);

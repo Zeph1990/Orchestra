@@ -42,28 +42,28 @@ public class Poi implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
+    @Basic
     @Column(name = "id")
     private Integer id;
-    @Basic(optional = false)
+    @Basic
     @NotNull
     @Size(min = 1, max = 150)
     @Column(name = "name")
     private String name;
-    @Basic(optional = false)
+    @Basic
     @NotNull
     @Column(name = "latitude")
     private double latitude;
-    @Basic(optional = false)
+    @Basic
     @NotNull
     @Column(name = "longitude")
     private double longitude;
-    @Basic(optional = false)
+    @Basic
     @NotNull
     @Size(min = 1, max = 150)
     @Column(name = "idmongo")
     private String idmongo;
-    @Basic(optional = false)
+    @Basic
     @NotNull
     @Size(min = 1, max = 300)
     @Column(name = "shortDescription")

@@ -13,6 +13,7 @@ import org.springframework.data.annotation.TypeAlias;
  */
 @TypeAlias("title")
 public class TitleComponent extends AbstractComponent {
+
     private String title;
 
     public String getTitle() {
@@ -22,5 +23,5 @@ public class TitleComponent extends AbstractComponent {
     public void setTitle(String title) {
         this.title = title;
     }
-    
+
 }

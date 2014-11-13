@@ -18,8 +18,8 @@ public class PoiMongo {
     @Id
     private String id;
     private String name;
-    private String latitude;
-    private String longitude;
+    private Double latitude;
+    private Double longitude;
     private String shortDescription;
     private List<AbstractComponent> components;
     private List<String> categories;
@@ -40,19 +40,19 @@ public class PoiMongo {
         this.name = name;
     }
 
-    public String getLatitude() {
+    public Double getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(String latitude) {
+    public void setLatitude(Double latitude) {
         this.latitude = latitude;
     }
 
-    public String getLongitude() {
+    public Double getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(String longitude) {
+    public void setLongitude(Double longitude) {
         this.longitude = longitude;
     }
 

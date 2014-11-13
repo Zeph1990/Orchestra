@@ -35,18 +35,18 @@ public class CompCategoryComponent implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
+    @Basic
     @Column(name = "id")
     private Integer id;
-    @Basic(optional = false)
+    @Basic
     @NotNull
     @Column(name = "required")
     private boolean required;
     @JoinColumn(name = "idcomponent", referencedColumnName = "id")
-    @ManyToOne(optional = false)
+    @ManyToOne
     private Component idcomponent;
     @JoinColumn(name = "idcategory", referencedColumnName = "id")
-    @ManyToOne(optional = false)
+    @ManyToOne
     private Category idcategory;
 
     public CompCategoryComponent() {

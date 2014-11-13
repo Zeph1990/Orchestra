@@ -12,7 +12,8 @@ import org.springframework.data.annotation.TypeAlias;
  * @author mekko
  */
 @TypeAlias("cover")
-public class CoverComponent {
+public class CoverComponent extends AbstractComponent {
+
     private String link;
 
     public String getLink() {
@@ -22,5 +23,5 @@ public class CoverComponent {
     public void setLink(String link) {
         this.link = link;
     }
-    
+
 }

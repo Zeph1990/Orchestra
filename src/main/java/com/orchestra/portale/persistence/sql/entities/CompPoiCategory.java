@@ -33,14 +33,14 @@ public class CompPoiCategory implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
+    @Basic
     @Column(name = "id")
     private Integer id;
     @JoinColumn(name = "idpoi", referencedColumnName = "id")
-    @ManyToOne(optional = false)
+    @ManyToOne
     private Poi idpoi;
     @JoinColumn(name = "idcategory", referencedColumnName = "id")
-    @ManyToOne(optional = false)
+    @ManyToOne
     private Category idcategory;
 
     public CompPoiCategory() {

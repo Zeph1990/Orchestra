@@ -40,10 +40,10 @@ public class Category implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
+    @Basic
     @Column(name = "id")
     private Integer id;
-    @Basic(optional = false)
+    @Basic
     @NotNull
     @Size(min = 1, max = 45)
     @Column(name = "slug")
