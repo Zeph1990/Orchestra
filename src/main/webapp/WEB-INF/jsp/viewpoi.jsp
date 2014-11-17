@@ -33,7 +33,7 @@
                     ${link},
                 </c:forEach>
             </c:if>
-                    <br>
+            <br>
             <c:if test="${not empty title}">
                 Titolo del poi: ${title.title}
             </c:if>

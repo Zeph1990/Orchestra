@@ -35,23 +35,32 @@ public class DummyPoiController {
         //Find all pois
         PoiMongo poi = mongoRepo.findAll().iterator().next();
 
-        /*{ "_id" : "5469f44e27366e05db741c3d" , "_class" : "com.orchestra.portale.persistence.mongo.documents.PoiMongo" , "name" : "Poi prova 0" , "latitude" : 40.0 , "longitude" : 14.0 , "shortDescription" : "Descrizione di prova 0" , "components" : [ { "link" : "link vuoto 0" , "_class" : "cover"} , { "title" : "titolo prova 0" , "_class" : "title"} , { "links" : [ "link vuoto 0"] , "_class" : "image_gallery"}] , "categories" : [ "food"]}*/
         model.addObject("poi", poi);
-        
+
         for (AbstractPoiComponent comp : poi.getComponents()) {
-            if (comp.slug().toLowerCase().contains("title")) {
-                System.out.println("titolo");
-                model.addObject("title", TitleComponent.class.cast(comp));
-            } else if (comp.slug().toLowerCase().contains("cover")) {
-                System.out.println("cover");
-                model.addObject("cover", CoverComponent.class.cast(comp));
-            } else if (comp.slug().toLowerCase().contains("imagegallery")) {
-                System.out.println("gallery");
-                model.addObject("image_gallery", ImageGalleryComponent.class.cast(comp));
+            try {
+                /*if (comp.slug().toLowerCase().contains("title")) {
+                    model.addObject("title", Class.forName(comp.slug()).cast(comp));
+                } else if (comp.slug().toLowerCase().contains("cover")) {
+                    System.out.println("cover");
+                    model.addObject("cover", CoverComponent.class.cast(comp));
+                } else if (comp.slug().toLowerCase().contains("imagegallery")) {
+                    System.out.println("gallery");
+                    model.addObject("image_gallery", ImageGalleryComponent.class.cast(comp));
+                }*/
+                
+                String slug = comp.slug();
+                int index = slug.lastIndexOf(".");
+                String cname = slug.substring(index+1).replace("Component", "").toLowerCase();
+                
+                Class c = Class.forName(slug);
+                model.addObject(cname, c.cast(comp));
+                
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
-        
-        
+
         return model;
 
     }
