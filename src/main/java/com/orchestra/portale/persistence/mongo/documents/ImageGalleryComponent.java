@@ -12,8 +12,8 @@ import org.springframework.data.annotation.TypeAlias;
  *
  * @author mekko
  */
-@TypeAlias("image_gallery")
-public class ImageGalleryComponent extends AbstractComponent {
+@TypeAlias("com.orchestra.portale.persistence.mongo.documents.ImageGalleryComponent")
+public class ImageGalleryComponent extends AbstractPoiComponent {
 
     private List<String> links;
 

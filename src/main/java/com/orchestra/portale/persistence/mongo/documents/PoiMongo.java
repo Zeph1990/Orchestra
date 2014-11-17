@@ -21,7 +21,7 @@ public class PoiMongo {
     private Double latitude;
     private Double longitude;
     private String shortDescription;
-    private List<AbstractComponent> components;
+    private List<AbstractPoiComponent> components;
     private List<String> categories;
     
     public String getId() {
@@ -64,11 +64,11 @@ public class PoiMongo {
         this.shortDescription = shortDescription;
     }
 
-    public List<AbstractComponent> getComponents() {
+    public List<AbstractPoiComponent> getComponents() {
         return components;
     }
 
-    public void setComponents(List<AbstractComponent> components) {
+    public void setComponents(List<AbstractPoiComponent> components) {
         this.components = components;
     }
 

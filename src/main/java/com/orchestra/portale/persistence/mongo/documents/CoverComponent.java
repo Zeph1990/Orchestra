@@ -11,8 +11,8 @@ import org.springframework.data.annotation.TypeAlias;
  *
  * @author mekko
  */
-@TypeAlias("cover")
-public class CoverComponent extends AbstractComponent {
+@TypeAlias("com.orchestra.portale.persistence.mongo.documents.CoverComponent")
+public class CoverComponent extends AbstractPoiComponent {
 
     private String link;
 

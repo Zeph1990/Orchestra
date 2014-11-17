@@ -133,7 +133,8 @@ public class TestMongoConfig {
 
         //Insert Poi in database
         mongoOps.save(poi);
-
+        
+        
         //Retrieve Poi from database
         PoiTest outPoi = mongoOps.findById(poi.getId(), PoiTest.class);
 

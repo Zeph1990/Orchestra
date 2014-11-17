@@ -11,8 +11,8 @@ import org.springframework.data.annotation.TypeAlias;
  *
  * @author mekko
  */
-@TypeAlias("title")
-public class TitleComponent extends AbstractComponent {
+@TypeAlias("com.orchestra.portale.persistence.mongo.documents.TitleComponent")
+public class TitleComponent extends AbstractPoiComponent {
 
     private String title;
 

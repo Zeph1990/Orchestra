@@ -5,11 +5,12 @@
  */
 package com.orchestra.portale.controller;
 
-import com.orchestra.portale.persistence.mongo.documents.AbstractComponent;
+import com.orchestra.portale.persistence.mongo.documents.AbstractPoiComponent;
 import com.orchestra.portale.persistence.mongo.documents.CoverComponent;
 import com.orchestra.portale.persistence.mongo.documents.ImageGalleryComponent;
 import com.orchestra.portale.persistence.mongo.documents.PoiMongo;
 import com.orchestra.portale.persistence.mongo.documents.TitleComponent;
+import com.orchestra.portale.persistence.mongo.repositories.PoiMongoRepository;
 import com.orchestra.portale.persistence.sql.entities.Category;
 import com.orchestra.portale.persistence.sql.entities.CompCategoryComponent;
 import com.orchestra.portale.persistence.sql.entities.CompPoiCategory;
@@ -54,6 +55,9 @@ public class TestController {
 
     @Autowired
     MongoOperations mongoOps;
+    
+    @Autowired
+    PoiMongoRepository poiMongoRepo;
 
     @RequestMapping("/test1")
     public ModelAndView insertCategories() {
@@ -216,14 +220,14 @@ public class TestController {
                 TitleComponent title = new TitleComponent();
                 title.setTitle("titolo prova " + i);
 
-                LinkedList<AbstractComponent> components = new LinkedList<AbstractComponent>();
+                List<AbstractPoiComponent> components = new LinkedList<AbstractPoiComponent>();
                 components.add(cover);
                 components.add(title);
                 components.add(imageGallery);
 
                 mongoPois[i].setComponents(components);
 
-                mongoOps.save(mongoPois[i]);
+                poiMongoRepo.save(mongoPois[i]);
 
                 //Insert poi in sql schema
                 pois[i] = new Poi();
