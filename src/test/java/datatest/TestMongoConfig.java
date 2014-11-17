@@ -40,8 +40,8 @@ public class TestMongoConfig {
         //Create new document
         document = new TestDocument();
         //Set random values
-        document.setAtt1(RandomStringUtils.random(20));
-        document.setAtt2(RandomStringUtils.random(20));
+        document.setAtt1(RandomStringUtils.randomAlphabetic(20));
+        document.setAtt2(RandomStringUtils.randomAlphabetic(20));
     }
 
     @Test
@@ -70,7 +70,7 @@ public class TestMongoConfig {
 
         //Set a new random value to att1
         do {
-            value = RandomStringUtils.random(20);
+            value = RandomStringUtils.randomAlphabetic(20);
         } while (value.equals(document.getAtt1()));
         document.setAtt1(value);
 
@@ -109,8 +109,8 @@ public class TestMongoConfig {
         //Create new Poi
         PoiTest poi = new PoiTest();
         //Set random values
-        poi.setName(RandomStringUtils.random(10));
-        poi.setDescription(RandomStringUtils.random(10));
+        poi.setName(RandomStringUtils.randomAlphabetic(10));
+        poi.setDescription(RandomStringUtils.randomAlphabetic(10));
 
         //Create components list
         List<AbstractTestComponent> components
@@ -120,9 +120,9 @@ public class TestMongoConfig {
         Test1Component componentTest1 = new Test1Component();
         Test2Component componentTest2 = new Test2Component();
         //Set random values
-        componentTest1.setTitle(RandomStringUtils.random(10));
-        componentTest2.setName(RandomStringUtils.random(10));
-        componentTest2.setSurname(RandomStringUtils.random(10));
+        componentTest1.setTitle(RandomStringUtils.randomAlphabetic(10));
+        componentTest2.setName(RandomStringUtils.randomAlphabetic(10));
+        componentTest2.setSurname(RandomStringUtils.randomAlphabetic(10));
 
         //Add components to component list
         components.add(componentTest2);
