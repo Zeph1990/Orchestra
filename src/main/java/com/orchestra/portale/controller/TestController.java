@@ -72,10 +72,7 @@ public class TestController {
 
             food.setParent(null);
             nightlife.setParent(null);
-            hotels.setParent(null);
-
-            //ciaooooo
-            
+            hotels.setParent(null);            
             
             food.setSlug("food");
             nightlife.setSlug("nightlife");
