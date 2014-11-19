@@ -82,6 +82,8 @@ public class TestController {
             categoryRepository.save(nightlife);
             categoryRepository.save(hotels);
 
+            
+            /* prova commento */
 
             /* CHILD CATEGORIES */
              Category restaurant = new Category();
