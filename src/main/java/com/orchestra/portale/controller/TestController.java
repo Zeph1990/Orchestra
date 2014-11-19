@@ -83,7 +83,7 @@ public class TestController {
             categoryRepository.save(hotels);
 
             
-            /* prova commento */
+            /* un altro commneto */
 
             /* CHILD CATEGORIES */
              Category restaurant = new Category();
