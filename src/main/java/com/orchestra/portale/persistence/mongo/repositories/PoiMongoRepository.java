@@ -13,5 +13,10 @@ import org.springframework.data.repository.PagingAndSortingRepository;
  * @author mekko
  */
 public interface PoiMongoRepository extends PagingAndSortingRepository<PoiMongo, String>{
+
+    
+    
+    
+    
     
 }
