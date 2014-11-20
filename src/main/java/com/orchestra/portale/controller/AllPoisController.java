@@ -35,6 +35,7 @@ public class AllPoisController {
         model.addObject("ListaPoi", listaPoi);
         while (poi_iterator.hasNext()) {
             listaPoi.add((PoiMongo) poi_iterator.next());
+           
         }
        return model;
     }
