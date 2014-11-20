@@ -11,6 +11,8 @@ import com.orchestra.portale.persistence.mongo.documents.ImageGalleryComponent;
 import com.orchestra.portale.persistence.mongo.documents.PoiMongo;
 import com.orchestra.portale.persistence.mongo.documents.TitleComponent;
 import com.orchestra.portale.persistence.mongo.repositories.PoiMongoRepository;
+import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoOperations;
@@ -27,17 +29,22 @@ public class DummyPoiController {
 
     @Autowired
     PoiMongoRepository mongoRepo;
+    
+    
 
     @RequestMapping("/poitest")
     public ModelAndView dummyPoi() {
         ModelAndView model = new ModelAndView("viewpoi");
-
+        
         //Find all pois
-        PoiMongo poi = mongoRepo.findAll().iterator().next();
-
-        model.addObject("poi", poi);
-
-        for (AbstractPoiComponent comp : poi.getComponents()) {
+        Iterator poi_iterator=mongoRepo.findAll().iterator();
+        List<PoiMongo> listaPoi = new LinkedList<PoiMongo>();
+        model.addObject("poi", listaPoi);
+        while (poi_iterator.hasNext()) {
+            listaPoi.add((PoiMongo) poi_iterator.next());
+                
+                
+        for (AbstractPoiComponent comp : listaPoi.get(0).getComponents()) {
             try {
                 /*if (comp.slug().toLowerCase().contains("title")) {
                     model.addObject("title", Class.forName(comp.slug()).cast(comp));
@@ -59,6 +66,7 @@ public class DummyPoiController {
             } catch (Exception e) {
                 e.printStackTrace();
             }
+        }
         }
 
         return model;
