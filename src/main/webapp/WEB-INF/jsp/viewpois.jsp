@@ -19,8 +19,8 @@
     </head>
     <body>
         <c:forEach var="i" begin="0" end="${ListaPoi.size()-1}">
+            <a href="infopoi?id=${ListaPoi.get(i).getId()}">NOME = <c:out value="${ListaPoi.get(i).getName()}" /> <br></a>
             ID = <c:out value="${ListaPoi.get(i).getId()}" /><br>
-            NOME = <c:out value="${ListaPoi.get(i).getName()}" /> <br>
             LATITUDINE = ${ListaPoi.get(i).getLatitude()}<br>
             LONGITUDINE = ${ListaPoi.get(i).getLongitude()}<br>
             DESCRIZIONE = ${ListaPoi.get(i).getShortDescription()}<br><br>
