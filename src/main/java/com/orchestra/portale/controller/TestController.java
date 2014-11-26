@@ -6,7 +6,7 @@
 package com.orchestra.portale.controller;
 
 import com.orchestra.portale.persistence.mongo.documents.AbstractPoiComponent;
-import com.orchestra.portale.persistence.mongo.documents.CoverComponent;
+import com.orchestra.portale.persistence.mongo.documents.CoverImgComponent;
 import com.orchestra.portale.persistence.mongo.documents.ImageGalleryComponent;
 import com.orchestra.portale.persistence.mongo.documents.PoiMongo;
 import com.orchestra.portale.persistence.mongo.documents.TitleComponent;
@@ -211,7 +211,7 @@ public class TestController {
                 }
 
                 //Set mongo components
-                CoverComponent cover = new CoverComponent();
+                CoverImgComponent cover = new CoverImgComponent();
                 cover.setLink("link vuoto " + i);
 
                 ImageGalleryComponent imageGallery = new ImageGalleryComponent();

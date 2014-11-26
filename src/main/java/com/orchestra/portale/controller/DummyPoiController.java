@@ -6,7 +6,7 @@
 package com.orchestra.portale.controller;
 
 import com.orchestra.portale.persistence.mongo.documents.AbstractPoiComponent;
-import com.orchestra.portale.persistence.mongo.documents.CoverComponent;
+import com.orchestra.portale.persistence.mongo.documents.CoverImgComponent;
 import com.orchestra.portale.persistence.mongo.documents.ImageGalleryComponent;
 import com.orchestra.portale.persistence.mongo.documents.PoiMongo;
 import com.orchestra.portale.persistence.mongo.documents.TitleComponent;
@@ -39,15 +39,6 @@ public class DummyPoiController {
 
         for (AbstractPoiComponent comp : poi.getComponents()) {
             try {
-                /*if (comp.slug().toLowerCase().contains("title")) {
-                    model.addObject("title", Class.forName(comp.slug()).cast(comp));
-                } else if (comp.slug().toLowerCase().contains("cover")) {
-                    System.out.println("cover");
-                    model.addObject("cover", CoverComponent.class.cast(comp));
-                } else if (comp.slug().toLowerCase().contains("imagegallery")) {
-                    System.out.println("gallery");
-                    model.addObject("image_gallery", ImageGalleryComponent.class.cast(comp));
-                }*/
                 
                 String slug = comp.slug();
                 int index = slug.lastIndexOf(".");

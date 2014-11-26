@@ -21,6 +21,7 @@ public class PoiMongo {
     private Double latitude;
     private Double longitude;
     private String shortDescription;
+    private String address;
     private List<AbstractPoiComponent> components;
     private List<String> categories;
     
@@ -78,6 +79,20 @@ public class PoiMongo {
 
     public void setCategories(List<String> categories) {
         this.categories = categories;
+    }
+
+    /**
+     * @return the address
+     */
+    public String getAddress() {
+        return address;
+    }
+
+    /**
+     * @param address the address to set
+     */
+    public void setAddress(String address) {
+        this.address = address;
     }
     
     
