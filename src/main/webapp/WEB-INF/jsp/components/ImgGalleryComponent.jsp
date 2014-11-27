@@ -9,8 +9,6 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
-<!-- CAROSELLO
-================================================================ -->
 <link href="./dist/components/imgGalleryComponent/ImgGalleryComponent.css" rel="stylesheet">
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
@@ -58,6 +56,3 @@
     'stop');
     initCarousel();
 </script>
-
-<!--/CAROSELLO
-================================================================= -->
