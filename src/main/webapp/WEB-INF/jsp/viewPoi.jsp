@@ -34,7 +34,7 @@
 
 
             <c:if test="${not empty coverimg}">
-                Link alla cover: ${coverimg.link} <br>
+                cover: ${coverimg.link} <br>
             </c:if>
 
             <c:if test="${not empty imagegallery}">
