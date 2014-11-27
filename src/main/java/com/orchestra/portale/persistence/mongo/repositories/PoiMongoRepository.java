@@ -5,14 +5,14 @@
  */
 package com.orchestra.portale.persistence.mongo.repositories;
 
-import com.orchestra.portale.persistence.mongo.documents.PoiMongo;
+import com.orchestra.portale.persistence.mongo.documents.CompletePOI;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
 /**
  *
  * @author mekko
  */
-public interface PoiMongoRepository extends PagingAndSortingRepository<PoiMongo, String>{
+public interface PoiMongoRepository extends PagingAndSortingRepository<CompletePOI, String>{
 
     
     

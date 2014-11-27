@@ -1,7 +1,7 @@
 <%-- 
-    Document   : welcome
-    Created on : Oct 26, 2014, 6:32:00 PM
-    Author     : mekko
+    Document   : errorViewPoi
+    Created on : 27-nov-2014, 12.12.55
+    Author     : Marco Valentino
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -9,9 +9,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Errore</title>
     </head>
     <body>
-        <h1>Fatto</h1>
+        <h1>Impossibile visualizzare il poi richiesto!</h1>
     </body>
 </html>

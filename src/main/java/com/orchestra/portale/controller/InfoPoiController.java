@@ -6,7 +6,7 @@
 package com.orchestra.portale.controller;
 
 import com.orchestra.portale.persistence.mongo.documents.AbstractPoiComponent;
-import com.orchestra.portale.persistence.mongo.documents.PoiMongo;
+import com.orchestra.portale.persistence.mongo.documents.CompletePOI;
 import com.orchestra.portale.persistence.mongo.repositories.PoiMongoRepository;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -32,7 +32,7 @@ public class InfoPoiController {
     @RequestMapping(value= "/infopoi", params= "id")
     public ModelAndView InfoPoi(@RequestParam(value = "id") String id) {
         ModelAndView model = new ModelAndView("infopoi");
-        PoiMongo poi = mongoRepo.findOne(id);
+        CompletePOI poi = mongoRepo.findOne(id);
         
         model.addObject("poi",poi);
        for (AbstractPoiComponent comp : poi.getComponents()) {
@@ -66,7 +66,7 @@ public class InfoPoiController {
         Iterator poi_iterator=mongoRepo.findAll().iterator();
         boolean ok=false;
         while(poi_iterator.hasNext() && !ok){
-            PoiMongo poi= (PoiMongo) poi_iterator.next();
+            CompletePOI poi= (CompletePOI) poi_iterator.next();
             if(poi.getName().equals(nome)){
                 ok=true;
                 model.addObject("poi",poi);

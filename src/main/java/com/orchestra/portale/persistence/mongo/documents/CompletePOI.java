@@ -14,12 +14,11 @@ import org.springframework.data.mongodb.core.mapping.Document;
  * @author mekko
  */
 @Document(collection = "poi")
-public class PoiMongo {
+public class CompletePOI {
     @Id
     private String id;
     private String name;
-    private Double latitude;
-    private Double longitude;
+    private double[] location;
     private String shortDescription;
     private String address;
     private List<AbstractPoiComponent> components;
@@ -52,35 +51,7 @@ public class PoiMongo {
     public void setName(String name) {
         this.name = name;
     }
-
-    /**
-     * @return the latitude
-     */
-    public Double getLatitude() {
-        return latitude;
-    }
-
-    /**
-     * @param latitude the latitude to set
-     */
-    public void setLatitude(Double latitude) {
-        this.latitude = latitude;
-    }
-
-    /**
-     * @return the longitude
-     */
-    public Double getLongitude() {
-        return longitude;
-    }
-
-    /**
-     * @param longitude the longitude to set
-     */
-    public void setLongitude(Double longitude) {
-        this.longitude = longitude;
-    }
-
+    
     /**
      * @return the shortDescription
      */
@@ -135,6 +106,20 @@ public class PoiMongo {
      */
     public void setCategories(List<String> categories) {
         this.categories = categories;
+    }
+
+    /**
+     * @return the location
+     */
+    public double[] getLocation() {
+        return location;
+    }
+
+    /**
+     * @param location the location to set
+     */
+    public void setLocation(double[] location) {
+        this.location = location;
     }
     
     

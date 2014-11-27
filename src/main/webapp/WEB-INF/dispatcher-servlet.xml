@@ -47,6 +47,13 @@
           p:viewName="index" />
     
     <context:component-scan base-package="com.orchestra.portale.controller" />
+  
+    <!--Per lo scan del manager per la persistenza-->
+    <bean id="concretePersistence" class="com.orchestra.portale.dbManager.ConcretePersistenceManager"/>
+    <context:component-scan base-package="com.orchestra.portale.dbManager" />
+    
+    <mvc:resources mapping="/dist/**" location="/dist/"/> 
+    
     <mvc:annotation-driven />
 
 </beans>
