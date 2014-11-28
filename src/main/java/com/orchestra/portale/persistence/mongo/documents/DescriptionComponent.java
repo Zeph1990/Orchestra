@@ -16,7 +16,6 @@ import java.util.*;
 public class DescriptionComponent extends AbstractPoiComponent {
     
     private ArrayList<Section> sectionsList;
-
     /**
      * @return the sectionsList
      */
