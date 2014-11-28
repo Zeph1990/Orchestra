@@ -10,6 +10,9 @@ import com.orchestra.portale.persistence.mongo.documents.CoverImgComponent;
 import com.orchestra.portale.persistence.mongo.documents.DescriptionComponent;
 import com.orchestra.portale.persistence.mongo.documents.ImageGalleryComponent;
 import com.orchestra.portale.persistence.mongo.documents.CompletePOI;
+import com.orchestra.portale.persistence.mongo.documents.ContactsComponent;
+import com.orchestra.portale.persistence.mongo.documents.EmailContact;
+import com.orchestra.portale.persistence.mongo.documents.PhoneContact;
 import com.orchestra.portale.persistence.mongo.documents.Section;
 import com.orchestra.portale.persistence.mongo.documents.TitleComponent;
 import com.orchestra.portale.persistence.mongo.repositories.PoiMongoRepository;
@@ -107,6 +110,35 @@ public class TestController {
             DescriptionComponent description_component = new DescriptionComponent();
             description_component.setSectionsList(list);
             listComponent.add(description_component);
+            //componente contatti
+            ContactsComponent contacts_component = new ContactsComponent();
+             //Recapiti telefonici
+            ArrayList<PhoneContact> phoneList= new ArrayList<PhoneContact>();
+            PhoneContact phone=new PhoneContact();
+            phone.setLabel("Telefono");
+            phone.setNumber("081123456789");
+            PhoneContact phone1=new PhoneContact();
+            phone1.setLabel("Telefono1");
+            phone1.setNumber("081555666777");
+            phoneList.add(phone);
+            phoneList.add(phone1);
+            contacts_component.setPhoneList(phoneList);
+             //Indirizzi email
+            ArrayList<EmailContact> emailList= new ArrayList<EmailContact>();
+            EmailContact email=new EmailContact();
+            email.setLabel("Email");
+            email.setEmail("email@email.com");
+            EmailContact email1=new EmailContact();
+            email1.setLabel("Email1");
+            email1.setEmail("email1@email.com");
+            emailList.add(email);
+            emailList.add(email1);
+            contacts_component.setEmailsList(emailList);
+            //facebook & twitter
+            contacts_component.setFacebook("www.facebook.com/pagina");
+            contacts_component.setTwitter("www.twitter.com/pagina");
+            
+            listComponent.add(contacts_component);
             
             //componente titolo
             TitleComponent title=new TitleComponent();
