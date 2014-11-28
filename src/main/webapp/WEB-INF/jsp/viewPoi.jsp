@@ -11,7 +11,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <!--JQUERY JS-->
+        <!--JQUERY JS--> 
+        
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
         <!-- Bootstrap core CSS -->
         <link href="./dist/css/bootstrap.min.css" rel="stylesheet">
