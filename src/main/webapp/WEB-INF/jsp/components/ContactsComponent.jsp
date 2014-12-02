@@ -12,46 +12,20 @@
 <!DOCTYPE html>
 
 
-    
-        <div class="row">
-                    
-                    <div class="col-md-12">
-                        <center>
-                        <h1 class="title-contact">
-                            Contatti</h1>
-                        </center>
-                    </div>
-                   
-        </div>
-                    <div class="row">
-                       
-                    <div class="col-md-12 contact-email">
-                        <center>
-                        <h2>
-                            info@website.com</h2>
-                        <h3>
-                            +12 34567890</h3>
-                        <h3> +12 34567890 </h3>
-                        </center>
-                  
-                    </div>
-                       
-                    </div>
-                        <div class="row">
-                            <center>
-                            <div class="col-md-12">
-                                <a href="http://www.jquery2dotnet.com" class="skype"><i class="fa fa-skype"></i>skypeuser</a>
-                            </div>
-                            </center>
-                        </div>
-                         <div class="row">
-                             <center>
-                            <div class="col-md-12">
-                                <a href="http://www.jquery2dotnet.com" class="skype"><i class="fa fa-skype"></i>skypeuser</a>
-                            </div>
-                             </center>
-                        </div>  
+<div class="panel panel-danger">
+    <div class="panel-heading">
+        <h3 class="panel-title">Contatti </h3>
+    </div>
+    <div class="panel-body">
 
-         
-            
-  
+        info@website.com<br>
+        +12 34567890<br>
+        +12 34567890<br>
+        <a href="http://www.jquery2dotnet.com" class="skype"><i class="fa fa-skype"></i>skypeuser</a><br>
+        <a href="http://www.jquery2dotnet.com" class="skype"><i class="fa fa-skype"></i>skypeuser</a><br>
+    </div>  
+</div>
+
+
+
+

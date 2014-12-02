@@ -12,14 +12,21 @@
 <!-- CAROSELLO
 ================================================================ -->
 <link href="./dist/components/imgGalleryComponent/ImgGalleryComponent.css" rel="stylesheet">
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
-    <ol id="carouselIndicators" class="carousel-indicators">
-    </ol>
-    <div id="carouselInner" class="carousel-inner">
+<div class="panel panel-success">
+    <div class="panel-heading">
+        <h3 class="panel-title">Galleria</h3>
     </div>
-    <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
-    <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+    <div class="panel-body">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol id="carouselIndicators" class="carousel-indicators">
+            </ol>
+            <div id="carouselInner" class="carousel-inner">
+            </div>
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+        </div>
+    </div>  
 </div>
 <script>
     //funzione di inizializzazione del carosello  
@@ -53,7 +60,7 @@
     }
     var imgArray = new Array(
     <c:forEach var = "link" items = "${imagegallery.links}" >
-    './dist/poi/img/547707787911ab8d50417b6f/${link}',
+    './dist/poi/img/${poi.id}/${link}',
     </c:forEach>
     'stop');
     initCarousel();
