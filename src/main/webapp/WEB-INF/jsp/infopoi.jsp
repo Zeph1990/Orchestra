@@ -71,18 +71,7 @@
                                     ${descr.description}<br>
                                 </c:forEach>
                             </c:if>
-                            <c:if test="${not empty contacts}">
-                                <c:forEach var="cont" items="${contacts.phoneList}">
-                                    ${cont.label}:<br>
-                                    ${cont.number}<br><br>
-                                </c:forEach>
-                                <c:forEach var="contm" items="${contacts.emailsList}">
-                                    ${contm.label}:<br>
-                                    ${contm.email}<br><br>
-                                </c:forEach>
-                                ${contacts.facebook}<br>
-                                ${contacts.twitter}<br>
-                            </c:if>
+                            
                             </p>
                         </div>
                     </div>
