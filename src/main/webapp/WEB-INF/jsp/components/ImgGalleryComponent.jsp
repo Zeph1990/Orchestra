@@ -12,11 +12,6 @@
 <!-- CAROSELLO
 ================================================================ -->
 <link href="./dist/components/imgGalleryComponent/ImgGalleryComponent.css" rel="stylesheet">
-<div class="panel panel-success">
-    <div class="panel-heading">
-        <h3 class="panel-title">Galleria</h3>
-    </div>
-    <div class="panel-body">
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->
             <ol id="carouselIndicators" class="carousel-indicators">
@@ -26,8 +21,6 @@
             <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
             <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
         </div>
-    </div>  
-</div>
 <script>
     //funzione di inizializzazione del carosello  
     function initCarousel() {
