@@ -14,8 +14,44 @@ import org.springframework.data.annotation.TypeAlias;
 public class ContactsComponent extends AbstractPoiComponent{
     private ArrayList<PhoneContact> phoneList;
     private ArrayList<EmailContact> emailsList;
+    private ArrayList<FaxContact> faxList;
+    private ArrayList<GenericSocial> socialList;
     private String facebook;
     private String twitter;
+    private String google;
+    private String skype;
+
+    public void setFaxList(ArrayList<FaxContact> faxList) {
+        this.faxList = faxList;
+    }
+
+    public void setSocialList(ArrayList<GenericSocial> socialList) {
+        this.socialList = socialList;
+    }
+
+    public void setGoogle(String google) {
+        this.google = google;
+    }
+
+    public void setSkype(String skype) {
+        this.skype = skype;
+    }
+
+    public ArrayList<FaxContact> getFaxList() {
+        return faxList;
+    }
+
+    public ArrayList<GenericSocial> getSocialList() {
+        return socialList;
+    }
+
+    public String getGoogle() {
+        return google;
+    }
+
+    public String getSkype() {
+        return skype;
+    }
 
     public ArrayList<PhoneContact> getPhoneList() {
         return phoneList;
