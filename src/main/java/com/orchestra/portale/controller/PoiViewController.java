@@ -30,7 +30,7 @@ public class PoiViewController {
     public ModelAndView getPoi(@RequestParam(value = "id") String id) {
 
         //Creo la view che sarà mostrata all'utente
-        ModelAndView model = new ModelAndView("viewPoi");
+        ModelAndView model = new ModelAndView("infopoi");
         ModelAndView error = new ModelAndView("errorViewPoi");
         CompletePOI poi = pm.getCompletePoiById(id);
         //aggiungo il poi al model
