@@ -17,12 +17,51 @@
         <h3 class="panel-title">Contatti </h3>
     </div>
     <div class="panel-body">
-
-        info@website.com<br>
-        +12 34567890<br>
-        +12 34567890<br>
-        <a href="http://www.jquery2dotnet.com" class="skype"><i class="fa fa-skype"></i>skypeuser</a><br>
-        <a href="http://www.jquery2dotnet.com" class="skype"><i class="fa fa-skype"></i>skypeuser</a><br>
+        <center>
+        <c:if test="${not empty contacts.emailsList}">
+              
+        <b>Contatti Email:</b><br>
+        <c:forEach var="contm" items="${contacts.emailsList}">
+                                    <b>${contm.label}:</b>
+                                   <a href="mailto:${contm.email}" target="_top"> ${contm.email}</a><br>
+                                </c:forEach>
+                                    <br>
+                                    </c:if>
+                                    <c:if test="${not empty contacts.phoneList}">
+                                    <b>Contatti Telefonici:</b><br>
+                                    <c:forEach var="cont" items="${contacts.phoneList}">
+                                        <b>${cont.label}:</b>
+                                        ${cont.number}<br>
+                                </c:forEach>
+                                        <br>
+                                    </c:if>
+                                    <c:if test="${not empty contacts.faxList}">
+                                    <b>Fax:</b><br>
+                                    <c:forEach var="cont" items="${contacts.faxList}">
+                                        <b>${cont.label}:</b>
+                                        ${cont.fax}<br>
+                                </c:forEach>
+                                        <br>
+                                    </c:if>
+                                    <c:if test="${not empty contacts.facebook}">    
+                                    <a href="${contacts.facebook}" class="btn btn-info"><i class="fa fa-facebook-square"> Pagina Facebook</i></a><br>
+                                    </c:if>
+                                    <c:if test="${not empty contacts.twitter}">    
+                                    <a href="${contacts.twitter}" class="btn btn-info"><i class="fa fa-twitter"> Twitter</i></a><br>
+                                    </c:if>
+                                    <c:if test="${not empty contacts.google}">    
+                                    <a href="${contacts.google}" class="btn btn-info"><i class="fa fa-google-plus"> Pagina Google+</i></a><br>
+                                    </c:if>
+                                    <c:if test="${not empty contacts.skype}">    
+                                    <a href="${contacts.skype}" class="btn btn-info"><i class="fa fa-skype"> Skype</i></a><br>
+                                    </c:if>
+                                    <c:if test="${not empty contacts.socialList}">
+                                        <c:forEach var="cont" items="${contacts.socialList}">
+                                         <a href="${cont.social}" class="btn btn-info"><i class="fa fa-star"> ${cont.label}</i></a><br>
+                                        </c:forEach>
+                                    </c:if>
+                                    </center>
+                                        
     </div>  
 </div>
 
