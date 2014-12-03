@@ -17,6 +17,7 @@
         <script src="./dist/js/bootstrap.min.js"></script>
         <script src="./dist/js/bootbox.min.js"></script>
         <link href="./dist/materialDesign/dist/css/ripples.min.css" rel="stylesheet">
+        <link href="./dist//css/font-awesome.min.css" rel="stylesheet">
         <link href="./dist/materialDesign/dist/css/material-wfont.css" rel="stylesheet">
         <script src="./dist/materialDesign/dist/js/ripples.min.js"></script>
         <script src="./dist/materialDesign/dist/js/material.min.js"></script>
@@ -66,6 +67,12 @@
                 </div>
             </div>
         </div>
+                             <script>
+            $(document).ready(function() {
+                $.material.init();
+            });
+        </script>
     </body>
+    
 </html>
 
