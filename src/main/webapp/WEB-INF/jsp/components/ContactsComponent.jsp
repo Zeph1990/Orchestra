@@ -44,20 +44,20 @@
                                         <br>
                                     </c:if>
                                     <c:if test="${not empty contacts.facebook}">    
-                                    <a href="${contacts.facebook}" class="btn btn-info"><i class="fa fa-facebook-square"> Pagina Facebook</i></a><br>
+                                    <a href="#" class="btn btn-material-blue btn-fab fa fa-facebook"></a>
                                     </c:if>
                                     <c:if test="${not empty contacts.twitter}">    
-                                    <a href="${contacts.twitter}" class="btn btn-info"><i class="fa fa-twitter"> Twitter</i></a><br>
+                                    <a href="${contacts.twitter}" class="btn btn-material-lightblue btn-fab fa fa-twitter"></a>
                                     </c:if>
                                     <c:if test="${not empty contacts.google}">    
-                                    <a href="${contacts.google}" class="btn btn-info"><i class="fa fa-google-plus"> Pagina Google+</i></a><br>
+                                    <a href="${contacts.google}" class="btn btn-material-red btn-fab fa fa-google-plus"></a>
                                     </c:if>
                                     <c:if test="${not empty contacts.skype}">    
-                                    <a href="${contacts.skype}" class="btn btn-info"><i class="fa fa-skype"> Skype</i></a><br>
+                                    <a href="${contacts.skype}" class="btn btn-material-lightblue btn-fab fa fa-skype"></a>
                                     </c:if>
                                     <c:if test="${not empty contacts.socialList}">
                                         <c:forEach var="cont" items="${contacts.socialList}">
-                                         <a href="${cont.social}" class="btn btn-info"><i class="fa fa-star"> ${cont.label}</i></a><br>
+                                            <a href="${cont.social}" class="btn btn-success btn-fab "></a>
                                         </c:forEach>
                                     </c:if>
                                     </center>
