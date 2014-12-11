@@ -9,17 +9,15 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<!DOCTYPE html>
-
-
-<div class="panel panel-danger">
-    <div class="panel-heading">
-        <h3 class="panel-title">Contatti </h3>
+<div class="panel panel-default">
+    <div class="panel-thumbnail bg-primary" style="padding-bottom: 5px; padding-top: 5px">
+        <center>
+            <i class="fa fa-envelope-o fa-lg" style="font-size: 35px;"></i>
+        </center>
     </div>
     <div class="panel-body">
         <center>
         <c:if test="${not empty contacts.emailsList}">
-              
         <b>Contatti Email:</b><br>
         <c:forEach var="contm" items="${contacts.emailsList}">
                                     <b>${contm.label}:</b>
@@ -44,26 +42,29 @@
                                         <br>
                                     </c:if>
                                     <c:if test="${not empty contacts.facebook}">    
-                                    <a href="#" class="btn btn-material-blue btn-fab fa fa-facebook"></a>
+                                    <a href="#" class="matbtn matbtn-material-blue matbtn-fab matbtn-fab-mini fa fa-facebook"></a>
                                     </c:if>
                                     <c:if test="${not empty contacts.twitter}">    
-                                    <a href="${contacts.twitter}" class="btn btn-material-lightblue btn-fab fa fa-twitter"></a>
+                                    <a href="${contacts.twitter}" class="matbtn matbtn-material-lightblue matbtn-fab matbtn-fab-mini fa fa-twitter"></a>
                                     </c:if>
                                     <c:if test="${not empty contacts.google}">    
-                                    <a href="${contacts.google}" class="btn btn-material-red btn-fab fa fa-google-plus"></a>
+                                    <a href="${contacts.google}" class="matbtn matbtn-material-red matbtn-fab matbtn-fab-mini fa fa-google-plus"></a>
                                     </c:if>
                                     <c:if test="${not empty contacts.skype}">    
-                                    <a href="${contacts.skype}" class="btn btn-material-lightblue btn-fab fa fa-skype"></a>
+                                    <a href="${contacts.skype}" class="matbtn matbtn-material-lightblue matbtn-fab matbtn-fab-mini fa fa-skype"></a>
                                     </c:if>
                                     <c:if test="${not empty contacts.socialList}">
                                         <c:forEach var="cont" items="${contacts.socialList}">
-                                            <a href="${cont.social}" class="btn btn-success btn-fab "></a>
+                                            <a href="${cont.social}" class="matbtn matbtn-material-teal matbtn-fab  fa fa-star"></a>
                                         </c:forEach>
                                     </c:if>
                                     </center>
                                         
     </div>  
 </div>
+
+
+
 
 
 
